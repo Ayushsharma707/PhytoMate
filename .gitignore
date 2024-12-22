@@ -1,0 +1,27 @@
+# Ignore virtual environments
+venv/
+
+# Ignore dataset folders
+Plant_Disease_Dataset/test/
+Plant_Disease_Dataset/train/
+Plant_Disease_Dataset/valid/
+Plant_Disease_Dataset/.ipynb_checkpoints/
+
+crop-recommendation-system-main/Dataset/
+crop-recommendation-system-main/Model/
+
+# Ignore large files
+*.keras
+*.pkl
+*.json
+
+# Ignore Jupyter notebook checkpoints
+*.ipynb_checkpoints/
+
+# Ignore hidden system files
+.DS_Store
+Thumbs.db
+
+# Ignore Python cache
+__pycache__/
+*.pyc
