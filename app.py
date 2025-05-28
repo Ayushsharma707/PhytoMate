@@ -11,6 +11,7 @@ import re  # Regular expressions (regex) are used for pattern matching and strin
 import os
 from dotenv import load_dotenv
 # Load environment variables from .env file
+st.set_page_config(page_title="PhytoMate", layout="wide")
 load_dotenv()
 
 # Retrieve the API key
@@ -79,7 +80,6 @@ def get_solution_from_gemini(disease_name):
         return f"Error fetching solution: {e}"
 
 # Set up page configuration
-st.set_page_config(page_title="PhytoMate", layout="wide")
 st.markdown(""" 
     <style>
     .title { font-size: 3rem; color: #4CAF50; text-align: center; font-family: 'Segoe UI'; }
@@ -172,7 +172,7 @@ elif option == '🔍 Features':
 
         # File uploader
         st.markdown('<div class="sub-header" style="color: white;">Upload a plant image to identify its disease:</div>', unsafe_allow_html=True)
-        test_image = st.file_uploader("", type=["jpg", "png", "jpeg"])
+        test_image = st.file_uploader("", type=["jpg", "jpeg", "png", "bmp", "webp"])
 
         # Store the uploaded image in session_state
         if test_image:
