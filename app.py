@@ -16,12 +16,14 @@ st.set_page_config(page_title="PhytoMate", layout="wide")
 
 load_dotenv()
 
-# Retrieve the API key
-api_key = os.getenv("API_KEY")
 
-# Configure the GenAI API
+if "API_KEY" not in st.secrets:
+    st.error("🚫 API key not found in Streamlit Secrets. Please add it in your app settings.")
+    st.stop()
+
+api_key = st.secrets["API_KEY"]
+
 genai.configure(api_key=api_key)
-
 
 model_path = "Plant_Disease_Dataset/trained_plant_disease_model.keras"
 
