@@ -17,12 +17,15 @@ st.set_page_config(page_title="PhytoMate", layout="wide")
 load_dotenv()
 
 
-if "API_KEY" not in st.secrets:
-    st.error("🚫 API key not found in Streamlit Secrets. Please add it in your app settings.")
+# ✅ Get the API key FIRST
+api_key = os.getenv("API_KEY")
+
+# ❗ THEN check if it's missing
+if not api_key:
+    st.error("🚫 API key not found in .env file. Please add it.")
     st.stop()
 
-api_key = st.secrets["API_KEY"]
-
+# Use the API key
 genai.configure(api_key=api_key)
 
 model_path = "Plant_Disease_Dataset/trained_plant_disease_model.keras"
@@ -241,7 +244,7 @@ elif option == '🔍 Features':
         tf.keras.backend.clear_session()
 
         # Load the plant disease model
-        model_path = "crop-recommendation-system-main/Model/crop_knn_v2.pkl"
+        model_path = "crop-recommendation-system-main/Model/knn.pkl"
         if not os.path.exists(model_path):
             st.error("Recommendation model file not found!")
         else:
@@ -266,7 +269,7 @@ elif option == '🔍 Features':
         @st.cache_resource
         def load_model():
             try:
-                return joblib.load('crop-recommendation-system-main/Model/crop_knn_v2.pkl')
+                return joblib.load('crop-recommendation-system-main/Model/knn.pkl')
             except Exception as e:
                 st.error(f"Error loading recommendation model: {e}")
                 return None
