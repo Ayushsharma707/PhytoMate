@@ -266,7 +266,7 @@ elif option == '🔍 Features':
         @st.cache_resource
         def load_model():
             try:
-                return joblib.load('crop-recommendation-system-main/Model/knn.pkl')
+                return joblib.load('crop-recommendation-system-main/Model/crop_knn_v2.pkl')
             except Exception as e:
                 st.error(f"Error loading recommendation model: {e}")
                 return None
