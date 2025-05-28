@@ -241,7 +241,7 @@ elif option == '🔍 Features':
         tf.keras.backend.clear_session()
 
         # Load the plant disease model
-        model_path = "crop-recommendation-system-main/Model/knn_clean.pkl"
+        model_path = "crop-recommendation-system-main/Model/crop_knn_v2.pkl"
         if not os.path.exists(model_path):
             st.error("Recommendation model file not found!")
         else:
