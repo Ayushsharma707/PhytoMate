@@ -12,13 +12,8 @@ __pycache__/
 venv/
 
 # Dataset
-*.csv
 *.json
 
-# Models and Checkpoints
-Model/
-RDF_model.pkl
-trained_plant_disease_model.keras
 
 # System Files
 .DS_Store

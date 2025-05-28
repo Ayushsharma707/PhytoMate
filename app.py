@@ -241,16 +241,16 @@ elif option == '🔍 Features':
         tf.keras.backend.clear_session()
 
         # Load the plant disease model
-        model_path = "crop-recommendation-system-main/Model/knn.pkl"
-
+        model_path = "crop-recommendation-system-main/Model/knn_clean.pkl"
         if not os.path.exists(model_path):
-            print("Error: Model file not found!")
+            st.error("Recommendation model file not found!")
         else:
             try:
-                model = tf.keras.models.load_model(model_path)
+                rdf_clf = joblib.load(model_path)
                 print("Model loaded successfully!")
             except Exception as e:
-                print("Error loading model:", str(e))
+                st.error(f"Error loading recommendation model: {e}")
+                rdf_clf = None
 
         # Cache data and model loading for efficiency
         @st.cache_data
