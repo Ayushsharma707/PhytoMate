@@ -12,6 +12,8 @@ import os
 from dotenv import load_dotenv
 # Load environment variables from .env file
 st.set_page_config(page_title="PhytoMate", layout="wide")
+
+
 load_dotenv()
 
 # Retrieve the API key
@@ -20,11 +22,6 @@ api_key = os.getenv("API_KEY")
 # Configure the GenAI API
 genai.configure(api_key=api_key)
 
-
-# Directly use the API key here (Note: This approach is not secure for production environments)
-
-# Configure the Generative AI client using the API key
-genai.configure(api_key=api_key)
 
 model_path = "Plant_Disease_Dataset/trained_plant_disease_model.keras"
 
